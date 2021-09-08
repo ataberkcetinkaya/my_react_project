@@ -1,30 +1,28 @@
 import React from 'react'
-import { Button, Dropdown, Menu } from 'semantic-ui-react'
+import { Button, Container, Dropdown, Menu } from 'semantic-ui-react'
+import TotalSummary from './TotalSummary'
 
 export default function Navi() {
     return (
         <div>
-            <Menu size='mini'>
-                <Menu.Item
-                    name='home'
-                />
-                <Menu.Item
-                    name='messages'
-                />
+            <Menu inverted fixed>
+                <Container>
+                    <Menu.Item
+                        name='home'
+                    />
+                    <Menu.Item
+                        name='messages'
+                    />
 
-                <Menu.Menu position='right'>
-                    <Dropdown item text='Language'>
-                        <Dropdown.Menu>
-                            <Dropdown.Item>English</Dropdown.Item>
-                            <Dropdown.Item>Russian</Dropdown.Item>
-                            <Dropdown.Item>Turkish</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
+                    <Menu.Menu position='right'>
 
-                    <Menu.Item>
-                        <Button primary>Sign Up</Button>
-                    </Menu.Item>
-                </Menu.Menu>
+                        <TotalSummary></TotalSummary>
+
+                        <Menu.Item>
+                            <Button primary>Sign Up</Button>
+                        </Menu.Item>
+                    </Menu.Menu>
+                </Container>
             </Menu>
         </div>
     )
