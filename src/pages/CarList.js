@@ -1,36 +1,39 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Icon, Label, Menu, Table } from 'semantic-ui-react'
+import CarService from '../services/carService'
 
 export default function CarList() {
+
+    const [cars, setCars] = useState([])
+
+    useEffect(() => {
+        let carService = new CarService()
+        carService.getCars().then((result) => setCars(result.data.data))
+    })
+
     return (
         <div>
             <Table celled>
                 <Table.Header>
                     <Table.Row>
-                        <Table.HeaderCell>Header</Table.HeaderCell>
-                        <Table.HeaderCell>Header</Table.HeaderCell>
-                        <Table.HeaderCell>Header</Table.HeaderCell>
+                        <Table.HeaderCell>Car ID</Table.HeaderCell>
+                        <Table.HeaderCell>Car Category ID</Table.HeaderCell>
+                        <Table.HeaderCell>Car Name</Table.HeaderCell>
+                        <Table.HeaderCell>Price</Table.HeaderCell>
+                        <Table.HeaderCell>Stock</Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
 
                 <Table.Body>
-                    <Table.Row>
-                        <Table.Cell>
-                            <Label ribbon>First</Label>
-                        </Table.Cell>
-                        <Table.Cell>Cell</Table.Cell>
-                        <Table.Cell>Cell</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                        <Table.Cell>Cell</Table.Cell>
-                        <Table.Cell>Cell</Table.Cell>
-                        <Table.Cell>Cell</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                        <Table.Cell>Cell</Table.Cell>
-                        <Table.Cell>Cell</Table.Cell>
-                        <Table.Cell>Cell</Table.Cell>
-                    </Table.Row>
+                    {cars.map((car) => (
+                        <Table.Row>
+                            <Table.Cell>{car.id}</Table.Cell>
+                            <Table.Cell>{car.categoryId}</Table.Cell>
+                            <Table.Cell>{car.carName}</Table.Cell>
+                            <Table.Cell>{car.unitPrice}</Table.Cell>
+                            <Table.Cell>{car.unitsInStock}</Table.Cell>
+                        </Table.Row>
+                    ))}
                 </Table.Body>
 
                 <Table.Footer>
