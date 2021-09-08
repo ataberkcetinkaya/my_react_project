@@ -16,20 +16,22 @@ export default function CarList() {
             <Table celled>
                 <Table.Header>
                     <Table.Row>
+                        <Table.HeaderCell>Category ID</Table.HeaderCell>
                         <Table.HeaderCell>Car ID</Table.HeaderCell>
-                        <Table.HeaderCell>Car Category ID</Table.HeaderCell>
                         <Table.HeaderCell>Car Name</Table.HeaderCell>
-                        <Table.HeaderCell>Price</Table.HeaderCell>
+                        <Table.HeaderCell>Fuel</Table.HeaderCell>
+                        <Table.HeaderCell>Price (€)</Table.HeaderCell>
                         <Table.HeaderCell>Stock</Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
 
                 <Table.Body>
                     {cars.map((car) => (
-                        <Table.Row>
-                            <Table.Cell>{car.id}</Table.Cell>
+                        <Table.Row key={car.id}>
                             <Table.Cell>{car.categoryId}</Table.Cell>
+                            <Table.Cell>{car.id}</Table.Cell>
                             <Table.Cell>{car.carName}</Table.Cell>
+                            <Table.Cell>{car.fuelType}</Table.Cell>
                             <Table.Cell>{car.unitPrice}</Table.Cell>
                             <Table.Cell>{car.unitsInStock}</Table.Cell>
                         </Table.Row>
