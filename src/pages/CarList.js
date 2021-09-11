@@ -9,7 +9,7 @@ export default function CarList() {
     useEffect(() => {
         let carService = new CarService()
         carService.getCars().then((result) => setCars(result.data.data))
-    })
+    }, [])
 
     return (
         <div>
@@ -28,7 +28,7 @@ export default function CarList() {
                 <Table.Body>
                     {cars.map((car) => (
                         <Table.Row key={car.id}>
-                            <Table.Cell>{car.categoryId}</Table.Cell>
+                            <Table.Cell>{car.category.categoryId}</Table.Cell>
                             <Table.Cell>{car.id}</Table.Cell>
                             <Table.Cell>{car.carName}</Table.Cell>
                             <Table.Cell>{car.fuelType}</Table.Cell>
