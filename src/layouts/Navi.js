@@ -2,14 +2,18 @@ import React, {useState} from 'react'
 import { Button, Container, Dropdown, Menu } from 'semantic-ui-react'
 import SignedIn from './SignedIn'
 import SignedOut from './SignedOut'
+import { NavLink } from 'react-router-dom'
+import { useHistory } from 'react-router'
 import TotalSummary from './TotalSummary'
 
 export default function Navi() {
     
-    const [isAuthenticated, setIsAuthenticated] = useState(false)
+    const [isAuthenticated, setIsAuthenticated] = useState(true)
+    const history = useHistory() //const değişken
 
     function handleSignOut(params) {
         setIsAuthenticated(false)
+        history.push("/")
     }
 
     function handleSignIn(params) {
@@ -21,7 +25,7 @@ export default function Navi() {
             <Menu inverted fixed="top">
                 <Container>
                     <Menu.Item
-                        name='home'
+                        as={NavLink} to="/" name='home'
                     />
                     <Menu.Item
                         name='messages'

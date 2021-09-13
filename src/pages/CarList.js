@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Icon, Label, Menu, Table } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 import CarService from '../services/carService'
 
 export default function CarList() {
@@ -30,7 +31,7 @@ export default function CarList() {
                         <Table.Row key={car.id}>
                             <Table.Cell>{car.category.categoryId}</Table.Cell>
                             <Table.Cell>{car.id}</Table.Cell>
-                            <Table.Cell>{car.carName}</Table.Cell>
+                            <Table.Cell><Link to={`/cars/${car.carName}`}>{car.carName}</Link></Table.Cell>
                             <Table.Cell>{car.fuelType}</Table.Cell>
                             <Table.Cell>{car.unitPrice}</Table.Cell>
                             <Table.Cell>{car.unitsInStock}</Table.Cell>
