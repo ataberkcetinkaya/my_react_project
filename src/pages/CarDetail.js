@@ -13,7 +13,7 @@ export default function CarDetail() {
     useEffect(() => {
         let carService = new CarService()
         carService.getByCarName(name).then((result) => setCar(result.data.data))
-    }, [])
+    }, []);
 
     return (
         <div>

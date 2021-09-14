@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { Icon, Label, Menu, Table } from 'semantic-ui-react'
+import { Button, Icon, Menu, Table } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import CarService from '../services/carService'
+import { useDispatch } from 'react-redux'
+import { rentTheCar } from '../store/actions/rentActions'
+import { toast } from 'react-toastify'
 
 export default function CarList() {
+
+    const dispatch = useDispatch()
 
     const [cars, setCars] = useState([])
 
@@ -11,6 +16,11 @@ export default function CarList() {
         let carService = new CarService()
         carService.getCars().then((result) => setCars(result.data.data))
     }, [])
+
+    const handleAddToRent = (car) => {
+        dispatch(rentTheCar(car))
+        toast.success(`${car.carName} chosen!`)
+    }
 
     return (
         <div>
@@ -23,6 +33,7 @@ export default function CarList() {
                         <Table.HeaderCell>Fuel</Table.HeaderCell>
                         <Table.HeaderCell>Price (€)</Table.HeaderCell>
                         <Table.HeaderCell>Stock</Table.HeaderCell>
+                        <Table.HeaderCell></Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
 
@@ -35,6 +46,7 @@ export default function CarList() {
                             <Table.Cell>{car.fuelType}</Table.Cell>
                             <Table.Cell>{car.unitPrice}</Table.Cell>
                             <Table.Cell>{car.unitsInStock}</Table.Cell>
+                            <Table.Cell><Button onClick = {() => handleAddToRent(car)}>Rent Now</Button></Table.Cell>
                         </Table.Row>
                     ))}
                 </Table.Body>

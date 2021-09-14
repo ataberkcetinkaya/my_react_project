@@ -1,14 +1,16 @@
 import React from 'react'
 import CarList from '../pages/CarList'
 import Categories from './Categories'
-import { Grid, GridColumn, Image } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 import { Route } from 'react-router'
 import CarDetail from '../pages/CarDetail'
 import RentDetail from '../pages/RentDetail'
+import { ToastContainer } from 'react-toastify'
 
 export default function Dashboard() {
     return (
         <div>
+            <ToastContainer position = "bottom-right"/>
             <Grid>
                 <Grid.Row>
                     <Grid.Column width={4}>
