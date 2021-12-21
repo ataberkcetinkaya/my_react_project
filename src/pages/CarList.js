@@ -10,12 +10,18 @@ export default function CarList() {
 
     const dispatch = useDispatch()
 
-    const [cars, setCars] = useState([])
+    const [cars, setCars] = useState([]) //Destructure (elimizdeki array'in değerlerini değişkenlere atamak istediğimiz zaman.)
+        //cars gelecek dataya karşılık, setCars ise reactHook.. ve bu datanın default değeri boş bir array 'useState([])
+            //cars kısmını değiştirmek için setCars'ı kullanırız. işte o react-hook. (lifecycle hook)
 
-    useEffect(() => {
+        //cars kısmı gelen data ile değiştiği anda sayfa yeniden render ediliyor ve return yeniden başlıyor.
+
+
+    useEffect(() => { //component yüklendiğinde yapılmasını istediğimiz kodu buranın içerisine yazariz.
         let carService = new CarService()
         carService.getCars().then((result) => setCars(result.data.data))
-    }, [])
+    }, [])        //.then ile başarılı olursa demek.. setCars ile cars'ı set edebiliriz.
+                    //result.data.data yazmamızın nedeni axios tüm data infoyu çeker biz onu bir nevi kısaltıyoruz.
 
     const handleAddToRent = (car) => {
         dispatch(rentTheCar(car))
@@ -38,8 +44,9 @@ export default function CarList() {
                 </Table.Header>
 
                 <Table.Body>
-                    {cars.map((car) => (
-                        <Table.Row key={car.id}>
+                    {cars.map((car) => ( //destructure ettiğimiz için burada cars'a ulaşabiliyoruz.
+                                        //react mapping yaptığımız yerlerde key değeri ister.
+                        <Table.Row key={car.id}> 
                             <Table.Cell>{car.category.categoryId}</Table.Cell>
                             <Table.Cell>{car.id}</Table.Cell>
                             <Table.Cell><Link to={`/cars/${car.carName}`}>{car.carName}</Link></Table.Cell>
