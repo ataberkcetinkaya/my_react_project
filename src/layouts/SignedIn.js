@@ -5,7 +5,7 @@ export default function SignedIn({signOut}) {
     return (
         <div>
             <Menu.Item>
-                <Image avatar spaced="right" src="https://pbs.twimg.com/profile_images/1435709545758826501/JRPdjDFs_400x400.jpg"></Image>
+                <Image avatar spaced="right" src="https://pbs.twimg.com/profile_images/1469781160158973955/AY_VyprZ_400x400.jpg"></Image>
                 <Dropdown pointing="top" text="Berk">
                     <Dropdown.Menu>
                         <Dropdown.Item text="My Info" icon="info"/>
