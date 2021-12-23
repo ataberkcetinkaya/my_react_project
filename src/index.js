@@ -12,10 +12,13 @@ const store = configureStore()
 ReactDOM.render(
   // <React.StrictMode>
   <Provider store = {store}>
-    <BrowserRouter>
+    <BrowserRouter> 
       <App />
     </BrowserRouter>,
   </Provider>
+  //<BrowserRouter> 
+  //<App />
+  //</BrowserRouter> KULLANARAK <App />'yi sarmallıyoruz çünkü react-router çalışmalı. <route> - <router>
   ,
   // </React.StrictMode>
   document.getElementById('root')

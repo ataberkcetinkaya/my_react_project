@@ -1,10 +1,15 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import { Dropdown, Menu, Image } from 'semantic-ui-react'
+import Messages from '../pages/Messages'
 
 export default function SignedIn({signOut}) {
     return (
         <div>
             <Menu.Item>
+            <Menu.Item
+                   onClick={Messages} name='Messages'
+                />
                 <Image avatar spaced="right" src="https://pbs.twimg.com/profile_images/1469781160158973955/AY_VyprZ_400x400.jpg"></Image>
                 <Dropdown pointing="top" text="Berk">
                     <Dropdown.Menu>

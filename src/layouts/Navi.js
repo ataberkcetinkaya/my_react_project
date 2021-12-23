@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import { Container, Menu } from 'semantic-ui-react'
+import React, { useState } from 'react'
+import { Container, Menu, Dropdown } from 'semantic-ui-react'
 import SignedIn from './SignedIn'
 import SignedOut from './SignedOut'
 import { NavLink } from 'react-router-dom'
@@ -8,10 +8,10 @@ import TotalSummary from './TotalSummary'
 import { useSelector } from 'react-redux'
 
 export default function Navi() {
-    
+
     const { rentWorks } = useSelector(state => state.rent)
     const [isAuthenticated, setIsAuthenticated] = useState(true)
-                //setIsAuthenticated'ı kullanarak, isAuthenticated değiştirebiliriz. Bu sayede çıkış yap/giriş yap'a basınca kullanıcıyı yönlendirebiliriz.
+    //setIsAuthenticated'ı kullanarak, isAuthenticated değiştirebiliriz. Bu sayede çıkış yap/giriş yap'a basınca kullanıcıyı yönlendirebiliriz.
 
     const history = useHistory() //const değişken
 
@@ -23,7 +23,7 @@ export default function Navi() {
     function handleSignIn(params) {
         setIsAuthenticated(true)
     }
-    
+
     return (
         <div>
             <Menu inverted fixed="top">
@@ -31,16 +31,27 @@ export default function Navi() {
                     <Menu.Item
                         as={NavLink} to="/" name='home'
                     />
-                    <Menu.Item
-                        name='messages'
-                    />
+                    
+                    {/* 
+                        DAHA SONRA EKLENECEK OZELLIKLER
+
+                    <Menu.Menu position='right'>
+                        <Menu.Item vertical>
+                            <Dropdown item text='Languages'>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item>English</Dropdown.Item>
+                                    <Dropdown.Item>Turkish</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </Menu.Item>
+                    </Menu.Menu> */}
 
                     <Menu.Menu position='right'>
 
-                        {rentWorks.length>0&&<TotalSummary/>}
-                        {isAuthenticated?<SignedIn signOut={handleSignOut} smthng="1"> </SignedIn>:<SignedOut signIn={handleSignIn}></SignedOut>}
-                                    
-                    </Menu.Menu> 
+                        {rentWorks.length > 0 && <TotalSummary />}
+                        {isAuthenticated ? <SignedIn signOut={handleSignOut} smthng="1"> </SignedIn> : <SignedOut signIn={handleSignIn}></SignedOut>}
+
+                    </Menu.Menu>
                 </Container>
             </Menu>
         </div>          //{isAuthenticated? satiri için;  : (ikinokta'nın anlami değilse demek) (yani yukaridaki satirin anlamı; kişi authenticate ise signedIn'i  ve

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Icon, Menu, Table } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import CarService from '../services/carService'
 import { useDispatch } from 'react-redux'
 import { rentTheCar } from '../store/actions/rentActions'
@@ -46,7 +46,7 @@ export default function CarList() {
 
                 <Table.Body>
                     {cars.map((car) => ( //destructure ettiğimiz için burada cars'a ulaşabiliyoruz.
-                                        //react mapping yaptığımız yerlerde key değeri ister.
+                                        //react, mapping yaptığımız yerlerde key değeri ister.
                         <Table.Row key={car.id}> 
                             <Table.Cell>{car.category.categoryId}</Table.Cell>
                             <Table.Cell>{car.id}</Table.Cell>
