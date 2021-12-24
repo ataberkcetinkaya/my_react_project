@@ -16,8 +16,9 @@ export default function Navi() {
     const history = useHistory() //const değişken
 
     function handleSignOut(params) {
-        setIsAuthenticated(false) //kullanıcı handleSignOut ile çıkış yapınca true değeri false'a çekeriz.
+        setIsAuthenticated(false) //kullanıcı handleSignOut ile çıkış yapınca true değeri false'a çekeri z.
         history.push("/")         //alt-component'e fonksiyon yollariz. (yani handleSignOut'u)
+        //signOut'a tıklandığında "/" yani anasayfaya push et.
     }
 
     function handleSignIn(params) {

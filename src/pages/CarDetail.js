@@ -7,6 +7,7 @@ export default function CarDetail() {
 
     let { name } = useParams() //parametreleri obje olarak verir. id:id,
     // id1.id2'de olabilirdi. yani ör. {id, categoryId}
+    //Dashboard.js içindeki <Route kısmında
 
     const [car, setCar] = useState({}); //ilk değeri boş obje {}
 
@@ -14,6 +15,7 @@ export default function CarDetail() {
         let carService = new CarService()
         carService.getByCarName(name).then((result) => setCar(result.data.data))
     }, []);
+    //CarList'ten kopyaladıklarımızın aynısı. Kodun notları için oraya bak.
 
     return (
         <div>
@@ -21,14 +23,14 @@ export default function CarDetail() {
                 <Card fluid>
                     <Card.Content>
                         <Image
-                            floated='right'
-                            size='mini'
-                            src='/images/avatar/large/steve.jpg'
+                            //floated
+                            size='small'
+                            src=''
                         />
                         <Card.Header>{car.carName}</Card.Header>
-                        <Card.Meta>{car.unitPrice}</Card.Meta>
+                        <Card.Meta>{car.fuelType}</Card.Meta>
                         <Card.Description>
-                            Steve wants to add you to the group <strong>best friends</strong>
+                            Price: <strong>{car.unitPrice}</strong>
                         </Card.Description>
                     </Card.Content>
                     <Card.Content extra>

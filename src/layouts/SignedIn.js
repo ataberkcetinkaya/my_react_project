@@ -11,7 +11,7 @@ export default function SignedIn({signOut}) {
                    onClick={Messages} name='Messages'
                 />
                 <Image avatar spaced="right" src="https://pbs.twimg.com/profile_images/1469781160158973955/AY_VyprZ_400x400.jpg"></Image>
-                <Dropdown pointing="top" text="Berk">
+                <Dropdown pointing="top" text="Ataberk Ç.">
                     <Dropdown.Menu>
                         <Dropdown.Item text="My Info" icon="info"/>
                         <Dropdown.Item onClick={signOut} text="Log Out" icon="sign-out"/>

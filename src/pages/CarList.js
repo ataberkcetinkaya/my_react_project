@@ -23,6 +23,7 @@ export default function CarList() {
     }, [])        //.then ile başarılı olursa demek.. setCars ile cars'ı set edebiliriz.
                     //result.data.data yazmamızın nedeni axios tüm data infoyu çeker biz onu bir nevi kısaltıyoruz.
                     //enson kısımda virgülden sonra '[]' boş array vermemizin nedeni api'ye sonsuz isteği kesmek
+                    //enson kısma [cart,id] gibi gibi bolumler verirsek, o kisimlarda her değişiklikte sayfayi yenile demiş oluruz.
 
     const handleAddToRent = (car) => {
         dispatch(rentTheCar(car))
