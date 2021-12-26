@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux'
 export default function Navi() {
 
     const { rentWorks } = useSelector(state => state.rent)
-    const [isAuthenticated, setIsAuthenticated] = useState(true)
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
     //setIsAuthenticated'ı kullanarak, isAuthenticated değiştirebiliriz. Bu sayede çıkış yap/giriş yap'a basınca kullanıcıyı yönlendirebiliriz.
 
     const history = useHistory() //const değişken

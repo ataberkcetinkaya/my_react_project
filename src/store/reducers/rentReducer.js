@@ -3,11 +3,15 @@ import { RENT_THE_CAR } from "../actions/rentActions";
 import { rentWorks } from "../initialValues/rentWorks";
 
 const initialState = {
-    rentWorks : rentWorks
-}
+    rentWorks : rentWorks  //default değer buradaki const değişkeninden geliyor
+} //sol taraf bizim verdiğimiz isim
+//sağ taraf bir yerde tanımlı değişken (temiz kod)
 
+//reducer: sepetin son halini tuttuğumuz yer, peki neye göre? gönderdiğimiz aksiyona göre.
+
+                            //default değeri veriyoruz (initialState)
 export default function rentReducer(state = initialState, {type, payload}) {
-    switch (type) {
+    switch (type) {                                      //ve aksiyonu veriyoruz. obje göndeririz
         case RENT_THE_CAR:
             let car = state.rentWorks.find(r => r.car.id  === payload.id)
             if (car) {
